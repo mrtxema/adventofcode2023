@@ -1,0 +1,8 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'Day2'
+
+dependencies {
+    implementation project(':common')
+}

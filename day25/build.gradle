@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'Day25'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    junit_version = '5.8.1'
+    assertj_version = '3.24.0'
+}
+
+dependencies {
+    implementation project(':common')
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit_version"
+    testImplementation "org.assertj:assertj-core:$assertj_version"
+}
+
+test {
+    useJUnitPlatform()
+}
