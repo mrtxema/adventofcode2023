@@ -17,7 +17,7 @@ public class Day1 {
         printSum("Part 2", readCalibrations(file, new EnhancedCalibrationParser()));
     }
 
-    public void printSum(String label, List<Integer> calibrations) {
+    private void printSum(String label, List<Integer> calibrations) {
         int sum = calibrations.stream().mapToInt(c -> c).sum();
         System.out.printf("[%s] Calibrations sum: %d%n", label, sum);
     }
