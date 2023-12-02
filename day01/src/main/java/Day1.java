@@ -13,13 +13,13 @@ public class Day1 {
 
     public void run() {
         String file = INPUT_FILE_NAME;
-        printSum("Part 1", readCalibrations(file, new CalibrationParser()));
-        printSum("Part 2", readCalibrations(file, new EnhancedCalibrationParser()));
+        printSum(1, readCalibrations(file, new CalibrationParser()));
+        printSum(2, readCalibrations(file, new EnhancedCalibrationParser()));
     }
 
-    private void printSum(String label, List<Integer> calibrations) {
+    private void printSum(int part, List<Integer> calibrations) {
         int sum = calibrations.stream().mapToInt(c -> c).sum();
-        System.out.printf("[%s] Calibrations sum: %d%n", label, sum);
+        System.out.printf("[Part %d] Calibrations sum: %d%n", part, sum);
     }
 
     private List<Integer> readCalibrations(String fileName, Parser<Integer> parser) {

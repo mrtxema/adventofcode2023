@@ -1,9 +1,9 @@
 import java.util.List;
 
-public class CalibrationParser implements Parser<Integer> {
+public class CalibrationParser extends SimpleParser<Integer> {
 
     @Override
-    public Integer parse(String line) {
+    public Integer nonNullParse(String line) {
         List<Integer> digits = extractAllDigits(line);
         return digits.get(0) * 10 + digits.get(digits.size() - 1);
     }

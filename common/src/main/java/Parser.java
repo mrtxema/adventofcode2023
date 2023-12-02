@@ -1,5 +1,7 @@
+import java.util.Optional;
+
 @FunctionalInterface
 public interface Parser<T> {
 
-    T parse(String line);
+    Optional<T> parse(String line);
 }
