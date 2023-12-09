@@ -20,11 +20,6 @@ public class Day7 {
 
     private void part1(List<Hand> hands) {
         List<Hand> sortedHands = hands.stream().sorted(Hand.comparator()).toList();
-        /*
-        IntStream.rangeClosed(1, sortedHands.size())
-                .forEach(rank -> System.out.printf("Hand %s: %d * %d = %d%n", sortedHands.get(rank - 1), rank,
-                        sortedHands.get(rank - 1).getBidAmount(), rank, sortedHands.get(rank - 1).getBidAmount()));
-         */
         long totalWinnings = IntStream.rangeClosed(1, sortedHands.size())
                 .mapToLong(rank -> rank * sortedHands.get(rank - 1).getBidAmount())
                 .sum();
