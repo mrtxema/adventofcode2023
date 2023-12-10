@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Day8 {
     private static final String INPUT_FILE_NAME = "input.txt";
 
@@ -13,7 +11,7 @@ public class Day8 {
 
     public void run() {
         Network network = new NetworkParser().parse(IOUtils.readTrimmedLines(getClass().getResource(INPUT_FILE_NAME)));
-        //part1(network);
+        part1(network);
         part2(network);
     }
 
@@ -33,11 +31,25 @@ public class Day8 {
     }
 
     private void part2(Network network) {
-        List<Network.Cycle> cycles = network.getNodes().stream()
+        long steps = network.getNodes().stream()
                 .filter(node -> node.code().endsWith("A"))
-                .map(network::findCycle)
-                .toList();
-        System.out.println("Cycles: " + cycles);
-        //System.out.println("[Part 2] Steps: " + steps);
+                .mapToLong(network::walk)
+                .reduce(1, Day8::lcm);
+        System.out.println("[Part 2] Steps: " + steps);
+    }
+
+    private static long lcm(long number1, long number2) {
+        if (number1 == 0 || number2 == 0) {
+            return 0;
+        }
+        long absNumber1 = Math.abs(number1);
+        long absNumber2 = Math.abs(number2);
+        long absHigherNumber = Math.max(absNumber1, absNumber2);
+        long absLowerNumber = Math.min(absNumber1, absNumber2);
+        long lcm = absHigherNumber;
+        while (lcm % absLowerNumber != 0) {
+            lcm += absHigherNumber;
+        }
+        return lcm;
     }
 }
