@@ -29,12 +29,12 @@ public class Platform {
 
     public Platform spin(int cycles) {
         Platform result = this;
-        Map<List<Integer>, Integer> cycleCache = new HashMap<>();
-        cycleCache.put(result.getRoundedRocksByColumn(), 0);
+        Map<List<Position>, Integer> cycleCache = new HashMap<>();
+        cycleCache.put(result.getRoundedRocksPositions(), 0);
         int i = 0;
         while (i < cycles) {
             result = result.tilt(Direction.NORTH).tilt(Direction.WEST).tilt(Direction.SOUTH).tilt(Direction.EAST);
-            List<Integer> key = result.getRoundedRocksByColumn();
+            List<Position> key = result.getRoundedRocksPositions();
             Integer previousCycle = cycleCache.get(key);
             if (previousCycle != null) {
                 int diff = i + 1 - previousCycle;
@@ -147,20 +147,21 @@ public class Platform {
     }
 
     public int getRoundedRocksLoad() {
-        return getRoundedRocksByColumn().stream().mapToInt(i -> i).sum();
+        return getRoundedRocksPositions().stream().mapToInt(Position::y).sum();
     }
 
-    private List<Integer> getRoundedRocksByColumn() {
-        List<Integer> result = new ArrayList<>();
+    private List<Position> getRoundedRocksPositions() {
+        List<Position> result = new ArrayList<>();
         for (int x = 0; x < map[0].length; x++) {
-            int sum = 0;
             for (int y = 0; y < map.length; y++) {
                 if (map[y][x] == ROUNDED_ROCK) {
-                    sum += map.length - y;
+                    result.add(new Position((short) x, (short) (map.length - y)));
                 }
             }
-            result.add(sum);
         }
         return result;
+    }
+
+    private record Position(short x, short y) {
     }
 }
