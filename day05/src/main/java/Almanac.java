@@ -1,5 +1,5 @@
-import common.SplitResult;
-import common.StringUtils;
+import common.parser.SplitResult;
+import common.parser.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

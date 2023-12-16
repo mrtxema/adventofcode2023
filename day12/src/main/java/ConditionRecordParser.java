@@ -1,5 +1,5 @@
-import common.SimpleParser;
-import common.StringUtils;
+import common.parser.SimpleParser;
+import common.parser.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;

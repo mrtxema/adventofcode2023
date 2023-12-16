@@ -1,4 +1,4 @@
-package common;
+package common.parser;
 
 import java.util.Optional;
 

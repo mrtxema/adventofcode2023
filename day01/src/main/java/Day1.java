@@ -1,5 +1,5 @@
-import common.IOUtils;
-import common.Parser;
+import common.parser.IOUtils;
+import common.parser.Parser;
 
 import java.util.List;
 

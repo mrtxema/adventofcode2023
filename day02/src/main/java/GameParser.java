@@ -1,4 +1,4 @@
-import common.SimpleParser;
+import common.parser.SimpleParser;
 
 import java.util.Arrays;
 import java.util.Map;

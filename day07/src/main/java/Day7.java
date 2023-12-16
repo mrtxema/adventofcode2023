@@ -1,4 +1,4 @@
-import common.IOUtils;
+import common.parser.IOUtils;
 
 import java.util.List;
 import java.util.stream.IntStream;

@@ -1,6 +1,6 @@
-import common.SimpleParser;
-import common.SplitResult;
-import common.StringUtils;
+import common.parser.SimpleParser;
+import common.parser.SplitResult;
+import common.parser.StringUtils;
 
 public class HandParser extends SimpleParser<Hand> {
 
