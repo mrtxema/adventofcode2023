@@ -1,3 +1,5 @@
+package common;
+
 import java.util.Optional;
 
 public abstract class SimpleParser<T> implements Parser<T> {

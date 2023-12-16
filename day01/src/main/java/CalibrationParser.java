@@ -1,3 +1,5 @@
+import common.SimpleParser;
+
 import java.util.List;
 
 public class CalibrationParser extends SimpleParser<Integer> {

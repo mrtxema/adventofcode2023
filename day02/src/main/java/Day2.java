@@ -1,3 +1,5 @@
+import common.IOUtils;
+
 import java.util.List;
 
 public class Day2 {

@@ -1,3 +1,5 @@
+import common.SimpleParser;
+
 import java.util.Arrays;
 
 public class SequenceParser extends SimpleParser<Sequence> {
