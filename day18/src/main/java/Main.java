@@ -1,9 +1,9 @@
-public class Day16 {
+public class Main {
     private static final String INPUT_FILE_NAME = "input.txt";
 
     public static void main(String[] args) {
         try {
-            new Day16().run();
+            new Main().run();
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
@@ -11,7 +11,7 @@ public class Day16 {
 
     public void run() {
         Solver solver = new Solver(INPUT_FILE_NAME).parseFile();
-        System.out.println("[Part 1] Energized tiles count: " + solver.part1());
-        System.out.println("[Part 2] Best energized tiles count: " + solver.part2());
+        System.out.println("[Part 1] Lava cubic meters: " + solver.part1());
+        System.out.println("[Part 2] Lava cubic meters: " + solver.part2());
     }
 }

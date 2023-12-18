@@ -15,6 +15,10 @@ public enum Direction {
     }
 
     public Position move(Position start) {
-        return new Position(start.x() + xOffset, start.y() + yOffset);
+        return move(start, 1);
+    }
+
+    public Position move(Position start, int steps) {
+        return new Position(start.x() + xOffset * steps, start.y() + yOffset * steps);
     }
 }
