@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'Day25'
+mainClassName = 'Main'
 
 repositories {
     mavenLocal()
@@ -18,7 +18,6 @@ dependencies {
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit_version"
     testImplementation "org.assertj:assertj-core:$assertj_version"
 }
 
