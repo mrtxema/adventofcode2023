@@ -1,3 +1,4 @@
+import common.math.MathUtils;
 import common.parser.IOUtils;
 
 public class Day8 {
@@ -36,22 +37,7 @@ public class Day8 {
         long steps = network.getNodes().stream()
                 .filter(node -> node.code().endsWith("A"))
                 .mapToLong(network::walk)
-                .reduce(1, Day8::lcm);
+                .reduce(1, MathUtils::lcm);
         System.out.println("[Part 2] Steps: " + steps);
-    }
-
-    private static long lcm(long number1, long number2) {
-        if (number1 == 0 || number2 == 0) {
-            return 0;
-        }
-        long absNumber1 = Math.abs(number1);
-        long absNumber2 = Math.abs(number2);
-        long absHigherNumber = Math.max(absNumber1, absNumber2);
-        long absLowerNumber = Math.min(absNumber1, absNumber2);
-        long lcm = absHigherNumber;
-        while (lcm % absLowerNumber != 0) {
-            lcm += absHigherNumber;
-        }
-        return lcm;
     }
 }

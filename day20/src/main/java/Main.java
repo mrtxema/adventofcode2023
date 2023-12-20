@@ -10,8 +10,8 @@ public class Main {
     }
 
     public void run() {
-        Solver solver = new Solver(INPUT_FILE_NAME).parseFile();
-        System.out.println("[Part 1] ?????: " + solver.part1());
-        System.out.println("[Part 2] ?????: " + solver.part2());
+        Day20Solver solver = new Day20Solver(INPUT_FILE_NAME);
+        System.out.println("[Part 1] Multiplied pulse counts: " + solver.part1());
+        System.out.println("[Part 2] Button presses count: " + solver.part2());
     }
 }
