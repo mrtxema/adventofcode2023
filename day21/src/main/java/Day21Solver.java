@@ -41,8 +41,8 @@ public class Day21Solver {
         Position startPosition = findPosition(START).orElseThrow();
         List<Position> reachedPositions = new ArrayList<>(List.of(startPosition));
         Set<Position> allPositions = new HashSet<>(reachedPositions);
-        Extrapolator extrapolator = new Extrapolator(1000);
-        for (int steps = 1; steps <= extrapolator.size(); steps++) {
+        Extrapolator extrapolator = new Extrapolator(1000, totalSteps);
+        for (int steps = 1; steps <= extrapolator.getAnalyzedSteps(); steps++) {
             reachedPositions = reachedPositions.stream()
                     .flatMap(this::getNewPositions)
                     .distinct()
@@ -54,7 +54,7 @@ public class Day21Solver {
                 break;
             }
         }
-        return extrapolator.extrapolate(totalSteps);
+        return extrapolator.extrapolate();
     }
 
     private Optional<Position> findPosition(char symbol) {
