@@ -31,6 +31,10 @@ public final class IOUtils {
         return readLines(resource, String::trim, parser);
     }
 
+    public static char[][] readCharMap(URL resource) {
+        return readTrimmedLines(resource).stream().map(String::toCharArray).toArray(char[][]::new);
+    }
+
     private static <T> List<T> readLines(URL resource, Function<String, String> transformer, Parser<T> parser) throws ParsingException {
         try (Stream<String> lines = Files.lines(getFilePath(resource))) {
             return lines.map(transformer).map(parser::parse).flatMap(Optional::stream).toList();

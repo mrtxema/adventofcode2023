@@ -7,13 +7,13 @@ class SolverTest {
     @Test
     void testPart1() {
         int result = initSolver().part1();
-        assertThat(result).isEqualTo(0);
+        assertThat(result).isEqualTo(94);
     }
 
     @Test
     void testPart2() {
         int result = initSolver().part2();
-        assertThat(result).isEqualTo(0);
+        assertThat(result).isEqualTo(154);
     }
 
     private Solver initSolver() {

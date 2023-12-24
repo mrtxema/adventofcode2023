@@ -11,7 +11,7 @@ public class Main {
 
     public void run() {
         Solver solver = new Solver(INPUT_FILE_NAME).parseFile();
-        System.out.println("[Part 1] ?????: " + solver.part1());
-        System.out.println("[Part 2] ?????: " + solver.part2());
+        System.out.println("[Part 1] Longest hike step count: " + solver.part1());
+        System.out.println("[Part 2] Longest hike step count: " + solver.part2());
     }
 }

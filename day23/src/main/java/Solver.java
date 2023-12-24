@@ -1,24 +1,34 @@
+import common.movement.Position;
 import common.parser.IOUtils;
-import java.util.List;
+import java.util.stream.IntStream;
 
 public class Solver {
+    private static final char PATH = '.';
     private final String fileName;
-    private List<String> lines;
+    private char[][] map;
+    private Position startPosition;
+    private Position endPosition;
 
     public Solver(String fileName) {
         this.fileName = fileName;
     }
 
     public Solver parseFile() {
-        this.lines = IOUtils.readTrimmedLines(getClass().getResource(fileName));
+        map = IOUtils.readCharMap(getClass().getResource(fileName));
+        startPosition = findSymbol(0, PATH);
+        endPosition = findSymbol(map.length - 1, PATH);
         return this;
     }
 
+    private Position findSymbol(int y, char symbol) {
+        return IntStream.range(0, map[y].length).filter(x -> map[y][x] == symbol).mapToObj(x -> new Position(x, y)).findAny().orElseThrow();
+    }
+
     public int part1() {
-        return 0;
+        return new LongestPathCalculator(map, true).calculateLongestPath(startPosition, endPosition);
     }
 
     public int part2() {
-        return 0;
+        return new GraphBuilder(map, false, startPosition, endPosition).build().getLongestHikeLength();
     }
 }
