@@ -10,8 +10,8 @@ public class Main {
     }
 
     public void run() {
-        Solver solver = new Solver(INPUT_FILE_NAME).parseFile();
-        System.out.println("[Part 1] ?????: " + solver.part1());
-        System.out.println("[Part 2] ?????: " + solver.part2());
+        Day24Solver solver = new Day24Solver(INPUT_FILE_NAME).parseFile();
+        System.out.println("[Part 1] Intersection count: " + solver.part1(200000000000000L, 400000000000000L));
+        System.out.println("[Part 2] Initial position coordinates sum: " + solver.part2());
     }
 }
