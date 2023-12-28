@@ -10,8 +10,7 @@ public class Main {
     }
 
     public void run() {
-        Solver solver = new Solver(INPUT_FILE_NAME).parseFile();
-        System.out.println("[Part 1] ?????: " + solver.part1());
-        System.out.println("[Part 2] ?????: " + solver.part2());
+        Day25Solver solver = new Day25Solver(INPUT_FILE_NAME).parseFile();
+        System.out.println("[Part 1] Group sizes multiplied: " + solver.part1());
     }
 }
